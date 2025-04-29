@@ -4,16 +4,21 @@ import Image from "next/image";
 import { useState } from 'react';
 
 import Navigation from "./components/navigation";
+import Content from "./components/content";
+import Contador from "./components/contador";
 
 const opcionesmenu = [
-  { id: 1, nombre: "Acerca De", url: "about",  isSelected: true},
-  { id: 2, nombre: "Tecnologia", url: "experience",  isSelected: true},
-  { id: 3, nombre: "Contacto", url: "contact",  isSelected: true },
+  { id: 1, nombre: "Acerca De", url: "about", isSelected: true },
+  { id: 2, nombre: "Tecnologia", url: "experience", isSelected: true },
+  { id: 3, nombre: "Contacto", url: "contact", isSelected: true },
 ];
 
 const menu = function () {
   const [elementoActivo, setElementoActivo] = useState(1);
 
+  // Se establece una constante para el contador y se inicializa en 0
+  // Se establece una función para incrementar el contador
+  const [contador, incrementarContador] = useState(0);
   return (
     <nav>
       <h1 className="text-4xl font-extrabold mb-4">Menu</h1>
@@ -25,49 +30,23 @@ const menu = function () {
           onClick={() => {
             setElementoActivo(opcion.id);
           }}
-          >
-            {/* elementoactivo se igual a la opción id seleccionada y && sirve para que si se cumple 
+        >
+          {/* elementoactivo se igual a la opción id seleccionada y && sirve para que si se cumple 
             la condición se ejecute el código que está a la derecha de && */}
-            {elementoActivo === opcion.id &&
-             (<span>♀</span>)}
-          </a>
+          {elementoActivo === opcion.id &&
+            (<span>♀</span>)}
+        </a>
       ))}
-         { elementoActivo === 1 &&
-         
-          (<div className="max-w-lg">
-            <h1 className="text-4xl font-extrabold mb-4">About</h1>
-            <p className="text-sm text-gray-700 dark:text-gray-200">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              tincidunt, nunc at bibendum facilisis, nunc nisl aliquet nunc, nec
-              aliquet nunc nisl nec nunc. Sed tincidunt, nunc at bibendum
-              facilisis, nunc nisl aliquet nunc, nec aliquet nunc nisl nec nunc.
-            </p>
-          </div>)
-      }
 
-      { elementoActivo === 2 &&
-          (<div className="max-w-lg">
-            <h1 className="text-4xl font-extrabold mb-4">Experiencia</h1>
-            <p className="text-sm text-gray-700 dark:text-gray-200">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              tincidunt, nunc at bibendum facilisis, nunc nisl aliquet nunc, nec
-              aliquet nunc nisl nec nunc. Sed tincidunt, nunc at bibendum
-              facilisis, nunc nisl aliquet nunc, nec aliquet nunc nisl nec nunc.
-            </p>
-          </div>)
-      }
+      Se indica que elementoActivo es igual a la opción id seleccionada
+      y && sirve para que si se cumple entonces se ejecute el código
+      que está a la derecha de &&
 
-      { elementoActivo === 3 &&
-          (<div className="max-w-lg">
-            <h1 className="text-4xl font-extrabold mb-4">Contacto</h1>
-            <p className="text-sm text-gray-700 dark:text-gray-200">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              tincidunt, nunc at bibendum facilisis, nunc nisl aliquet nunc, nec
-              aliquet nunc nisl nec nunc. Sed tincidunt, nunc at bibendum
-              facilisis, nunc nisl aliquet nunc, nec aliquet nunc nisl nec nunc.
-            </p>
-          </div>)
-      }
+      <Content elementoActivo={elementoActivo} />
+      
+
+      <button onClick={incrementarContador}>Click me</button>
+      <Contador contador={contador}></Contador>
     </nav>
   );
 };
@@ -77,7 +56,7 @@ export default function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <Navigation name="Keilor RC" />
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        {menu ()}
+        {menu()}
 
         <Image
           className="dark:invert"
