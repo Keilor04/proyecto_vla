@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { useState } from 'react';
 
-import Navigation from "./components/navigation";
-import Content from "./components/content";
-import Contador from "./components/contador";
+import Navigation from "./components/Navigation";
+import Content from "./components/Content";
+import Contador from "./components/Contador";
 
 const opcionesmenu = [
   { id: 1, nombre: "Acerca De", url: "about", isSelected: true },
