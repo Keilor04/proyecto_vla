@@ -1,7 +1,8 @@
- 
+“use client”;
+
 import Image from "next/image";
 
-import { useState } from 'react';
+// import { useState } from 'react';
 
 const opcionesmenu = [
   { id: 1, nombre: "Acerca De", url: " ", isSelected: true },
