@@ -3,10 +3,12 @@
 import Image from "next/image";
 import { useState } from 'react';
 
+import Navigation from "./components/navigation";
+
 const opcionesmenu = [
-  { id: 1, nombre: "Acerca De", url: " ",  isSelected: true},
-  { id: 2, nombre: "Tecnologia", url: " ",  isSelected: true},
-  { id: 3, nombre: "Contacto", url: " ",  isSelected: true },
+  { id: 1, nombre: "Acerca De", url: "about",  isSelected: true},
+  { id: 2, nombre: "Tecnologia", url: "experience",  isSelected: true},
+  { id: 3, nombre: "Contacto", url: "contact",  isSelected: true },
 ];
 
 const menu = function () {
@@ -24,13 +26,48 @@ const menu = function () {
             setElementoActivo(opcion.id);
           }}
           >
-            {opcion.nombre}
             {/* elementoactivo se igual a la opción id seleccionada y && sirve para que si se cumple 
             la condición se ejecute el código que está a la derecha de && */}
             {elementoActivo === opcion.id &&
-             (<span></span>)}
+             (<span>♀</span>)}
           </a>
       ))}
+         { elementoActivo === 1 &&
+         
+          (<div className="max-w-lg">
+            <h1 className="text-4xl font-extrabold mb-4">About</h1>
+            <p className="text-sm text-gray-700 dark:text-gray-200">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              tincidunt, nunc at bibendum facilisis, nunc nisl aliquet nunc, nec
+              aliquet nunc nisl nec nunc. Sed tincidunt, nunc at bibendum
+              facilisis, nunc nisl aliquet nunc, nec aliquet nunc nisl nec nunc.
+            </p>
+          </div>)
+      }
+
+      { elementoActivo === 2 &&
+          (<div className="max-w-lg">
+            <h1 className="text-4xl font-extrabold mb-4">Experiencia</h1>
+            <p className="text-sm text-gray-700 dark:text-gray-200">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              tincidunt, nunc at bibendum facilisis, nunc nisl aliquet nunc, nec
+              aliquet nunc nisl nec nunc. Sed tincidunt, nunc at bibendum
+              facilisis, nunc nisl aliquet nunc, nec aliquet nunc nisl nec nunc.
+            </p>
+          </div>)
+      }
+
+      { elementoActivo === 3 &&
+          (<div className="max-w-lg">
+            <h1 className="text-4xl font-extrabold mb-4">Contacto</h1>
+            <p className="text-sm text-gray-700 dark:text-gray-200">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              tincidunt, nunc at bibendum facilisis, nunc nisl aliquet nunc, nec
+              aliquet nunc nisl nec nunc. Sed tincidunt, nunc at bibendum
+              facilisis, nunc nisl aliquet nunc, nec aliquet nunc nisl nec nunc.
+            </p>
+          </div>)
+      }
     </nav>
   );
 };
@@ -38,6 +75,7 @@ const menu = function () {
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <Navigation name="Keilor RC" />
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         {menu ()}
 
