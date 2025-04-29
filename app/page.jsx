@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useState } from 'react';
 
 const opcionesmenu = [
-  { id: 1, nombre: "Acerca De", url: " " },
-  { id: 2, nombre: "Tecnologia", url: " " },
-  { id: 3, nombre: "Contacto", url: " " },
+  { id: 1, nombre: "Acerca De", url: " ",  isSelected: true},
+  { id: 2, nombre: "Tecnologia", url: " ",  isSelected: true},
+  { id: 3, nombre: "Contacto", url: " ",  isSelected: true },
 ];
 
 const menu = function () {
@@ -28,7 +28,7 @@ const menu = function () {
             {/* elementoactivo se igual a la opción id seleccionada y && sirve para que si se cumple 
             la condición se ejecute el código que está a la derecha de && */}
             {elementoActivo === opcion.id &&
-             (<span>*</span>)}
+             (<span></span>)}
           </a>
       ))}
     </nav>
