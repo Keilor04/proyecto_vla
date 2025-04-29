@@ -1,13 +1,12 @@
-“use client”;
+"use client";
 
 import Image from "next/image";
-
-// import { useState } from 'react';
+import { useState } from 'react';
 
 const opcionesmenu = [
-  { id: 1, nombre: "Acerca De", url: " ", isSelected: true },
-  { id: 2, nombre: "Tecnologia", url: " ", isSelected: true },
-  { id: 3, nombre: "Contacto", url: " ", isSelected: true },
+  { id: 1, nombre: "Acerca De", url: " " },
+  { id: 2, nombre: "Tecnologia", url: " " },
+  { id: 3, nombre: "Contacto", url: " " },
 ];
 
 const menu = function () {
@@ -16,7 +15,7 @@ const menu = function () {
   return (
     <nav>
       <h1 className="text-4xl font-extrabold mb-4">Menu</h1>
-      {opcionesDeMenu.map((opcion) => (
+      {opcionesmenu.map((opcion) => (
         <a
           key={opcion.id}
           href={opcion.link}
