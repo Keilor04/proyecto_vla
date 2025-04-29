@@ -24,7 +24,7 @@ const menu = function () {
             setElementoActivo(opcion.id);
           }}
           >
-            {opcion.texto}
+            {opcion.nombre}
             {/* elementoactivo se igual a la opción id seleccionada y && sirve para que si se cumple 
             la condición se ejecute el código que está a la derecha de && */}
             {elementoActivo === opcion.id &&
