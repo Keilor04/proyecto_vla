@@ -3,11 +3,11 @@ import React from "react";
 
 //Se estable elemento activo por defecto en 1, 
 // que es el primer elemento del array de opcionesmenu
-export default function Content(elementoActivo = 1) {
+export default function Content(elementoActivohijo = 1) {
   return (
     <div className="max-w-lg mx-auto p-8">
-       { elementoActivo === 1 &&
-          (<div className="max-w-lg">
+       { elementoActivohijo === 1 &&
+          (<div className="max-w-lg bg-light">
             <h1 className="text-4xl font-extrabold mb-4">About</h1>
             <p className="text-sm text-gray-700 dark:text-gray-200">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -18,7 +18,7 @@ export default function Content(elementoActivo = 1) {
           </div>)
       }
 
-      { elementoActivo === 2 &&
+      { elementoActivohijo === 2 &&
           (<div className="max-w-lg">
             <h1 className="text-4xl font-extrabold mb-4">Experiencia</h1>
             <p className="text-sm text-gray-700 dark:text-gray-200">
@@ -30,7 +30,7 @@ export default function Content(elementoActivo = 1) {
           </div>)
       }
 
-      { elementoActivo === 3 &&
+      { elementoActivohijo === 3 &&
           (<div className="max-w-lg">
             <h1 className="text-4xl font-extrabold mb-4">Contacto</h1>
             <p className="text-sm text-gray-700 dark:text-gray-200">

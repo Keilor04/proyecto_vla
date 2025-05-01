@@ -20,17 +20,19 @@ const menu = function () {
 
   // Se establece una constante para el contador y se inicializa en 0
   // Se establece una función para incrementar el contador
+  //se usa useState para asignar el valor inicial del contador a 0
+  // useState es un hook de React que permite manejar el estado en componentes funcionales
   const [contador, setContador] = useState(0);
 
   //Se establece una función para incrementar el contador
-  //handleIncrement es una función que se pasa como prop a Contador
-  // y sirve para actualizar el estado del contador en el componente padre
+  //handleIncrement es una función que se pasa como prop a Contador como componente hijo
+  //y sirve para actualizar el estado del contador en el componente padre
   const handleIncrement = (newValue) => {
     setContador(newValue);
-    console.log("Contador incrementado a:", newValue);
   };
 
   return (
+    
     <nav>
       <h1 className="text-4xl font-extrabold mb-4">Menu</h1>
       {opcionesmenu.map((opcion) => (
@@ -42,29 +44,32 @@ const menu = function () {
             setElementoActivo(opcion.id);
           }}
         >
-          {/* elementoactivo se igual a la opción id seleccionada y && sirve para que si se cumple
-            la condición se ejecute el código que está a la derecha de && */}
+          {opcion.nombre}
+          {/* Se indica que elementoActivo es igual a la opción id seleccionada
+      y && sirve para que si se cumple entonces se ejecute el código
+      que está a la derecha de && */}
+
           {elementoActivo === opcion.id &&
-            (<span>♀</span>)}
+            (<span>→</span>)}
         </a>
       ))}
 
-      Se indica que elementoActivo es igual a la opción id seleccionada
-      y && sirve para que si se cumple entonces se ejecute el código
-      que está a la derecha de &&
+<Content elementoActivohijo={elementoActivo}  />
 
-      <Content elementoActivo={elementoActivo} />
 
+      <h1>Componente padre</h1>
       <button
         className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
         onClick={() => setContador(contador + 1)}
       >
-        Click Me {contador}
+        Click Me: {contador}
       </button>
+      <br />
+      <hr />
 
       <Contador
         initialValue={contador}
-        etiqueta={"Counter"}
+       s
         onIncrement={handleIncrement} />
 
     </nav>
@@ -78,6 +83,7 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <Navigation name="Keilor RC" />
+      
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         {menu()}
 
