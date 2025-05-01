@@ -7,6 +7,8 @@ import Navigation from "./components/Navigation";
 import Content from "./components/Content";
 import Contador from "./components/Contador";
 
+// Se definen las variables que se van a utilizar
+
 const opcionesmenu = [
   { id: 1, nombre: "Acerca De", url: "about", isSelected: true },
   { id: 2, nombre: "Tecnologia", url: "experience", isSelected: true },
@@ -18,7 +20,16 @@ const menu = function () {
 
   // Se establece una constante para el contador y se inicializa en 0
   // Se establece una función para incrementar el contador
-  const [contador, incrementarContador] = useState(0);
+  const [contador, setContador] = useState(0);
+
+  //Se establece una función para incrementar el contador
+  //handleIncrement es una función que se pasa como prop a Contador
+  // y sirve para actualizar el estado del contador en el componente padre
+  const handleIncrement = (newValue) => {
+    setContador(newValue);
+    console.log("Contador incrementado a:", newValue);
+  };
+
   return (
     <nav>
       <h1 className="text-4xl font-extrabold mb-4">Menu</h1>
@@ -31,7 +42,7 @@ const menu = function () {
             setElementoActivo(opcion.id);
           }}
         >
-          {/* elementoactivo se igual a la opción id seleccionada y && sirve para que si se cumple 
+          {/* elementoactivo se igual a la opción id seleccionada y && sirve para que si se cumple
             la condición se ejecute el código que está a la derecha de && */}
           {elementoActivo === opcion.id &&
             (<span>♀</span>)}
@@ -43,15 +54,27 @@ const menu = function () {
       que está a la derecha de &&
 
       <Content elementoActivo={elementoActivo} />
-      
 
-      <button onClick={incrementarContador}>Click me</button>
-      <Contador contador={contador}></Contador>
+      <button
+        className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        onClick={() => setContador(contador + 1)}
+      >
+        Click Me {contador}
+      </button>
+
+      <Contador
+        initialValue={contador}
+        etiqueta={"Counter"}
+        onIncrement={handleIncrement} />
+
     </nav>
   );
 };
 
+
+
 export default function Home() {
+  // Ensure this component is used in your application
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <Navigation name="Keilor RC" />
