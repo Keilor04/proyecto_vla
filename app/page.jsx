@@ -28,11 +28,11 @@ const menu = function () {
   //handleIncrement es una función que se pasa como prop a Contador como componente hijo
   //y sirve para actualizar el estado del contador en el componente padre
   const handleIncrement = (newValue) => {
-    setContador(newValue);
+    setContador(newValue); // Actualiza el estado del contador en el componente padre
   };
 
   return (
-    
+
     <nav>
       <h1 className="text-4xl font-extrabold mb-4">Menu</h1>
       {opcionesmenu.map((opcion) => (
@@ -45,6 +45,7 @@ const menu = function () {
           }}
         >
           {opcion.nombre}
+
           {/* Se indica que elementoActivo es igual a la opción id seleccionada
       y && sirve para que si se cumple entonces se ejecute el código
       que está a la derecha de && */}
@@ -54,7 +55,9 @@ const menu = function () {
         </a>
       ))}
 
-<Content elementoActivohijo={elementoActivo}  />
+      <Content elementoActivohijo={elementoActivo} />
+
+
 
 
       <h1>Componente padre</h1>
@@ -69,10 +72,11 @@ const menu = function () {
 
       <Contador
         initialValue={contador}
-       s
+        s
         onIncrement={handleIncrement} />
 
     </nav>
+
   );
 };
 
@@ -83,7 +87,7 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <Navigation name="Keilor RC" />
-      
+
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         {menu()}
 
