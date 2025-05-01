@@ -6,8 +6,7 @@ export default function Contador() {
 
   const incrementarContador = () => {
     setContador(contador + 1);
-    onIncremet=
-  };
+    onIncremet=(newValue);
   
   return (
     <div>
