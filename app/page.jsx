@@ -4,15 +4,15 @@ import Image from "next/image";
 import { useState } from 'react';
 
 import Navigation from "./components/Navigation";
-import Content from "./components/Content";
+import Content from "./components/Content";  
 import Contador from "./components/Contador";
 
 // Se definen las variables que se van a utilizar
 
 const opcionesmenu = [
-  { id: 1, nombre: "Acerca De", url: "about", isSelected: true },
-  { id: 2, nombre: "Tecnologia", url: "experience", isSelected: true },
-  { id: 3, nombre: "Contacto", url: "contact", isSelected: true },
+  { id: 1, nombre: "Acerca De", url: " " },
+  { id: 2, nombre: "Tecnologia", url: " " },
+  { id: 3, nombre: "Contacto", url: " " },
 ];
 
 const menu = function () {
@@ -38,7 +38,7 @@ const menu = function () {
       {opcionesmenu.map((opcion) => (
         <a
           key={opcion.id}
-          href={opcion.link}
+          href={opcion.url}
           className="p-4 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
           onClick={() => {
             setElementoActivo(opcion.id);
@@ -55,7 +55,7 @@ const menu = function () {
         </a>
       ))}
 
-      <Content elementoActivohijo={elementoActivo} />
+<Content elementoActivoHijo={elementoActivo} />
 
 
 
@@ -72,7 +72,6 @@ const menu = function () {
 
       <Contador
         initialValue={contador}
-        s
         onIncrement={handleIncrement} />
 
     </nav>
